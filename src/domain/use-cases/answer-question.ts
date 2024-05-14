@@ -18,6 +18,7 @@ export class AnswerQuestionUseCase {
       content,
       authorId: instructorId,
       questionId,
+      createdAt: new Date(),
     })
 
     await this.answerRepository.create(answer)
