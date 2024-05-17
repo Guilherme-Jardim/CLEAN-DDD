@@ -8,7 +8,7 @@ export interface QuestionProps {
   title: string
   content: string
   slug: Slug
-  authorId: string
+  authorId: UniqueEntityID
   bestAnswerId?: UniqueEntityID
   createdAt: Date
   updatedAt?: Date
