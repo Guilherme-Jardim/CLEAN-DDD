@@ -1,13 +1,13 @@
 import { PaginationParams } from '@/core/repositories/pagination-params'
+import { QuestionAttachmentsRepository } from '@/domain/forum/application/repositories/question-attachments-repository'
 import { QuestionsRepository } from '@/domain/forum/application/repositories/questions-repository'
 import { Question } from '@/domain/forum/enterprise/entities/question'
-import { QuestionAttachmentRepository } from '../../src/domain/forum/application/repositories/question-attachments-repository'
 
 export class InMemoryQuestionsRepository implements QuestionsRepository {
   public items: Question[] = []
 
   constructor(
-    private questionAttachmentRepository: QuestionAttachmentRepository,
+    private questionAttachmentRepository: QuestionAttachmentsRepository,
   ) {}
 
   async findById(id: string) {

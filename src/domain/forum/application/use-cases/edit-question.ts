@@ -3,10 +3,10 @@ import { Question } from '../../enterprise/entities/question'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 import { NotAllowedError } from './errors/not-allowed-error'
 import { Either, left, right } from '@/core/either'
-import { QuestionAttachmentRepository } from '../repositories/question-attachments-repository'
-import { QUestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
+import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { QuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
 
 interface EditQuestionUseCaseRequest {
   authorId: string
@@ -26,7 +26,7 @@ type EditQuestionUseCaseResponse = Either<
 export class EditQuestionUseCase {
   constructor(
     private questionsRepository: QuestionsRepository,
-    private questionAttachmentsRepository: QuestionAttachmentRepository,
+    private questionAttachmentsRepository: QuestionAttachmentsRepository,
   ) {}
 
   async execute({
@@ -49,7 +49,7 @@ export class EditQuestionUseCase {
     const currentQuestionAttachments =
       await this.questionAttachmentsRepository.findManyByQuestionId(questionId)
 
-    const questionAttachmentList = new QUestionAttachmentList(
+    const questionAttachmentList = new QuestionAttachmentList(
       currentQuestionAttachments,
     )
 
