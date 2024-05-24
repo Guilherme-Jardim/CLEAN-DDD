@@ -29,7 +29,7 @@ export class OnAnswerCreated implements EventHandler {
     if (answer) {
       await this.sendNotification.execute({
         recipientId: answer?.authorId.toString(),
-        title: `Novo comentário na resposta criada"`,
+        title: `Novo comentário na pergunta criada"`,
         content: answerComment?.content.substring(0, 40).concat('...'),
       })
     }
