@@ -1,3 +1,36 @@
+# CLEAN-DDD
+
+Estudo de Domain-Driven Design e Clean Architecture em TypeScript. É um fórum de perguntas e respostas modelado só no domínio, sem framework nem banco: os repositórios são em memória e servem para os testes.
+
+## Arquitetura
+
+- `src/core`: base compartilhada (Entity, AggregateRoot, WatchedList, Either, eventos de domínio, erros)
+- `src/domain/forum`: entidades, value objects (Slug), eventos e casos de uso de perguntas, respostas, comentários e anexos
+- `src/domain/notification`: casos de uso e subscribers que reagem aos eventos do fórum
+- `test/`: factories e repositórios em memória usados pelos testes
+
+## Como instalar
+
+```bash
+npm install
+```
+
+## Como rodar e testar
+
+Não há servidor, o projeto é validado pelos testes:
+
+```bash
+npm test          # vitest (27 arquivos, 45 testes)
+npm run lint
+npx tsc --noEmit
+```
+
+Obs.: os arquivos do repositório usam fim de linha CRLF, então o lint pode reclamar de `prettier/prettier` no Windows/Linux se o arquivo não for convertido.
+
+---
+
+## Anotações de estudo
+
 # DDD (Domain-Driver-Design)
 
 Design dirigido à domínio
